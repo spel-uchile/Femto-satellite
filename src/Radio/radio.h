@@ -51,8 +51,7 @@ typedef struct {
     uint32_t GPS_Sat;
 } frame_t;
 
-class Radio
-{
+class Radio {
     /*Private Members*/
     frame_t beacon;
     frame_t beacon_tx_;

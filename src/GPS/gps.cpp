@@ -17,9 +17,8 @@ GPS::GPS(int baudrate) {
 }
 
 void GPS::init() {
-	if (I2Cgps.begin() == false) {
-    	Serial.println("GPS failed to respond. Please check wiring.");
-  	}	
+	if (I2Cgps.begin() == false)
+	    Serial.println("GPS failed to respond. Please check wiring.");	
     //Serial2.begin(gps_baudrate);
 }
 

@@ -1,5 +1,5 @@
 /**
- * @brief Simple Radio Example
+ * @brief Femto-satellite v1.0
  */
  
 /*Author: Matias Vidal*/
@@ -22,10 +22,10 @@ GPS gps;
 uint8_t base_cmd;
 
 void setup() {
-    // initialize serial communication
+    // Initialize serial communication
     Serial.begin(115200);
     delay(1800);
-    // init radio
+    // Init femto-satellite's systems
     Serial.println("Init femto-satellite");
     gps.init();
     radio.init();
@@ -36,12 +36,12 @@ void setup() {
 // ================================================================
 
 void loop() {
-	gps.updateData();
-	base_cmd = radio.read_command(); 
-	if (base_cmd == SEND_DATA) {
+    gps.updateData();
+    base_cmd = radio.read_command(); 
+    if (base_cmd == SEND_DATA) {
       	radio.updateBeacon(&gps.gpsData);
       	radio.send_data();
-	}
+    }
     else if (base_cmd == SEND_PICTURE) {
         
     }
@@ -58,6 +58,6 @@ void loop() {
     else if (base_cmd == DISABLE_LOW_POWER_MODE) {
         
     }
-	base_cmd = 0;
+    base_cmd = 0;
     delay(500);
 }
