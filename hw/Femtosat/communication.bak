@@ -108,8 +108,6 @@ Wire Wire Line
 	6300 3450 6100 3450
 Wire Wire Line
 	5600 3050 5600 2950
-Wire Wire Line
-	5600 2950 5750 2950
 Text Label 5750 2950 2    50   ~ 0
 3.3V
 Text HLabel 4150 3000 0    50   Input ~ 0
@@ -175,4 +173,45 @@ F 3 "" H 6700 3500 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	6700 3450 6700 3500
+$Comp
+L Device:C Ca7
+U 1 1 5BD8FE47
+P 6250 2850
+F 0 "Ca7" V 6150 2850 50  0000 C CNN
+F 1 "C" V 6250 2850 50  0000 C CNN
+F 2 "" H 6288 2700 50  0001 C CNN
+F 3 "~" H 6250 2850 50  0001 C CNN
+	1    6250 2850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C Cb7
+U 1 1 5BD90136
+P 6250 3100
+F 0 "Cb7" V 6150 3100 50  0000 C CNN
+F 1 "C" V 6250 3100 50  0000 C CNN
+F 2 "" H 6288 2950 50  0001 C CNN
+F 3 "~" H 6250 3100 50  0001 C CNN
+	1    6250 3100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6100 2850 6050 2850
+Wire Wire Line
+	6050 2850 6050 2950
+Wire Wire Line
+	6050 3100 6100 3100
+Wire Wire Line
+	5600 2950 6050 2950
+Connection ~ 6050 2950
+Wire Wire Line
+	6050 2950 6050 3100
+Wire Wire Line
+	6400 2850 6450 2850
+Wire Wire Line
+	6450 2850 6450 3100
+Wire Wire Line
+	6450 3100 6400 3100
+Text Label 6450 2950 0    50   ~ 0
+GND
 $EndSCHEMATC

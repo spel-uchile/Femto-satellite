@@ -1,4 +1,4 @@
-15332963180281112
+15340310126764878
 Antenna
 SMA
 
@@ -15330,197 +15330,197 @@ connector Molex Pico-Lock top entry
 14
 13
 Connector_Molex
-Molex_PicoBlade_53047-0410_1x02_P1.25mm_Vertical
-Molex PicoBlade Connector System, 53047-0410, 2 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53047-0210_1x02_P1.25mm_Vertical
+Molex PicoBlade Connector System, 53047-0210, 2 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade side entry
 0
 2
 2
 Connector_Molex
-Molex_PicoBlade_53047-0610_1x03_P1.25mm_Vertical
-Molex PicoBlade Connector System, 53047-0610, 3 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53047-0310_1x03_P1.25mm_Vertical
+Molex PicoBlade Connector System, 53047-0310, 3 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade side entry
 0
 3
 3
 Connector_Molex
-Molex_PicoBlade_53047-0810_1x04_P1.25mm_Vertical
-Molex PicoBlade Connector System, 53047-0810, 4 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53047-0410_1x04_P1.25mm_Vertical
+Molex PicoBlade Connector System, 53047-0410, 4 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade side entry
 0
 4
 4
 Connector_Molex
-Molex_PicoBlade_53047-1010_1x05_P1.25mm_Vertical
-Molex PicoBlade Connector System, 53047-1010, 5 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53047-0510_1x05_P1.25mm_Vertical
+Molex PicoBlade Connector System, 53047-0510, 5 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade side entry
 0
 5
 5
 Connector_Molex
-Molex_PicoBlade_53047-1210_1x06_P1.25mm_Vertical
-Molex PicoBlade Connector System, 53047-1210, 6 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53047-0610_1x06_P1.25mm_Vertical
+Molex PicoBlade Connector System, 53047-0610, 6 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade side entry
 0
 6
 6
 Connector_Molex
-Molex_PicoBlade_53047-1410_1x07_P1.25mm_Vertical
-Molex PicoBlade Connector System, 53047-1410, 7 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53047-0710_1x07_P1.25mm_Vertical
+Molex PicoBlade Connector System, 53047-0710, 7 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade side entry
 0
 7
 7
 Connector_Molex
-Molex_PicoBlade_53047-1610_1x08_P1.25mm_Vertical
-Molex PicoBlade Connector System, 53047-1610, 8 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53047-0810_1x08_P1.25mm_Vertical
+Molex PicoBlade Connector System, 53047-0810, 8 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade side entry
 0
 8
 8
 Connector_Molex
-Molex_PicoBlade_53047-1810_1x09_P1.25mm_Vertical
-Molex PicoBlade Connector System, 53047-1810, 9 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53047-0910_1x09_P1.25mm_Vertical
+Molex PicoBlade Connector System, 53047-0910, 9 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade side entry
 0
 9
 9
 Connector_Molex
-Molex_PicoBlade_53047-2010_1x10_P1.25mm_Vertical
-Molex PicoBlade Connector System, 53047-2010, 10 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53047-1010_1x10_P1.25mm_Vertical
+Molex PicoBlade Connector System, 53047-1010, 10 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade side entry
 0
 10
 10
 Connector_Molex
-Molex_PicoBlade_53047-2210_1x11_P1.25mm_Vertical
-Molex PicoBlade Connector System, 53047-2210, 11 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53047-1110_1x11_P1.25mm_Vertical
+Molex PicoBlade Connector System, 53047-1110, 11 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade side entry
 0
 11
 11
 Connector_Molex
-Molex_PicoBlade_53047-2410_1x12_P1.25mm_Vertical
-Molex PicoBlade Connector System, 53047-2410, 12 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53047-1210_1x12_P1.25mm_Vertical
+Molex PicoBlade Connector System, 53047-1210, 12 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade side entry
 0
 12
 12
 Connector_Molex
-Molex_PicoBlade_53047-2610_1x13_P1.25mm_Vertical
-Molex PicoBlade Connector System, 53047-2610, 13 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53047-1310_1x13_P1.25mm_Vertical
+Molex PicoBlade Connector System, 53047-1310, 13 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade side entry
 0
 13
 13
 Connector_Molex
-Molex_PicoBlade_53047-2810_1x14_P1.25mm_Vertical
-Molex PicoBlade Connector System, 53047-2810, 14 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53047-1410_1x14_P1.25mm_Vertical
+Molex PicoBlade Connector System, 53047-1410, 14 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade side entry
 0
 14
 14
 Connector_Molex
-Molex_PicoBlade_53047-3010_1x15_P1.25mm_Vertical
-Molex PicoBlade Connector System, 53047-3010, 15 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53047-1510_1x15_P1.25mm_Vertical
+Molex PicoBlade Connector System, 53047-1510, 15 Pins per row (http://www.molex.com/pdm_docs/sd/530470610_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade side entry
 0
 15
 15
 Connector_Molex
-Molex_PicoBlade_53048-0410_1x02_P1.25mm_Horizontal
-Molex PicoBlade Connector System, 53048-0410, 2 Pins per row (http://www.molex.com/pdm_docs/sd/532530770_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53048-0210_1x02_P1.25mm_Horizontal
+Molex PicoBlade Connector System, 53048-0210, 2 Pins per row (http://www.molex.com/pdm_docs/sd/530480210_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade top entry
 0
 2
 2
 Connector_Molex
-Molex_PicoBlade_53048-0610_1x03_P1.25mm_Horizontal
-Molex PicoBlade Connector System, 53048-0610, 3 Pins per row (http://www.molex.com/pdm_docs/sd/532530770_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53048-0310_1x03_P1.25mm_Horizontal
+Molex PicoBlade Connector System, 53048-0310, 3 Pins per row (http://www.molex.com/pdm_docs/sd/530480210_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade top entry
 0
 3
 3
 Connector_Molex
-Molex_PicoBlade_53048-0810_1x04_P1.25mm_Horizontal
-Molex PicoBlade Connector System, 53048-0810, 4 Pins per row (http://www.molex.com/pdm_docs/sd/532530770_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53048-0410_1x04_P1.25mm_Horizontal
+Molex PicoBlade Connector System, 53048-0410, 4 Pins per row (http://www.molex.com/pdm_docs/sd/530480210_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade top entry
 0
 4
 4
 Connector_Molex
-Molex_PicoBlade_53048-1010_1x05_P1.25mm_Horizontal
-Molex PicoBlade Connector System, 53048-1010, 5 Pins per row (http://www.molex.com/pdm_docs/sd/532530770_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53048-0510_1x05_P1.25mm_Horizontal
+Molex PicoBlade Connector System, 53048-0510, 5 Pins per row (http://www.molex.com/pdm_docs/sd/530480210_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade top entry
 0
 5
 5
 Connector_Molex
-Molex_PicoBlade_53048-1210_1x06_P1.25mm_Horizontal
-Molex PicoBlade Connector System, 53048-1210, 6 Pins per row (http://www.molex.com/pdm_docs/sd/532530770_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53048-0610_1x06_P1.25mm_Horizontal
+Molex PicoBlade Connector System, 53048-0610, 6 Pins per row (http://www.molex.com/pdm_docs/sd/530480210_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade top entry
 0
 6
 6
 Connector_Molex
-Molex_PicoBlade_53048-1410_1x07_P1.25mm_Horizontal
-Molex PicoBlade Connector System, 53048-1410, 7 Pins per row (http://www.molex.com/pdm_docs/sd/532530770_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53048-0710_1x07_P1.25mm_Horizontal
+Molex PicoBlade Connector System, 53048-0710, 7 Pins per row (http://www.molex.com/pdm_docs/sd/530480210_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade top entry
 0
 7
 7
 Connector_Molex
-Molex_PicoBlade_53048-1610_1x08_P1.25mm_Horizontal
-Molex PicoBlade Connector System, 53048-1610, 8 Pins per row (http://www.molex.com/pdm_docs/sd/532530770_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53048-0810_1x08_P1.25mm_Horizontal
+Molex PicoBlade Connector System, 53048-0810, 8 Pins per row (http://www.molex.com/pdm_docs/sd/530480210_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade top entry
 0
 8
 8
 Connector_Molex
-Molex_PicoBlade_53048-1810_1x09_P1.25mm_Horizontal
-Molex PicoBlade Connector System, 53048-1810, 9 Pins per row (http://www.molex.com/pdm_docs/sd/532530770_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53048-0910_1x09_P1.25mm_Horizontal
+Molex PicoBlade Connector System, 53048-0910, 9 Pins per row (http://www.molex.com/pdm_docs/sd/530480210_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade top entry
 0
 9
 9
 Connector_Molex
-Molex_PicoBlade_53048-2010_1x10_P1.25mm_Horizontal
-Molex PicoBlade Connector System, 53048-2010, 10 Pins per row (http://www.molex.com/pdm_docs/sd/532530770_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53048-1010_1x10_P1.25mm_Horizontal
+Molex PicoBlade Connector System, 53048-1010, 10 Pins per row (http://www.molex.com/pdm_docs/sd/530480210_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade top entry
 0
 10
 10
 Connector_Molex
-Molex_PicoBlade_53048-2210_1x11_P1.25mm_Horizontal
-Molex PicoBlade Connector System, 53048-2210, 11 Pins per row (http://www.molex.com/pdm_docs/sd/532530770_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53048-1110_1x11_P1.25mm_Horizontal
+Molex PicoBlade Connector System, 53048-1110, 11 Pins per row (http://www.molex.com/pdm_docs/sd/530480210_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade top entry
 0
 11
 11
 Connector_Molex
-Molex_PicoBlade_53048-2410_1x12_P1.25mm_Horizontal
-Molex PicoBlade Connector System, 53048-2410, 12 Pins per row (http://www.molex.com/pdm_docs/sd/532530770_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53048-1210_1x12_P1.25mm_Horizontal
+Molex PicoBlade Connector System, 53048-1210, 12 Pins per row (http://www.molex.com/pdm_docs/sd/530480210_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade top entry
 0
 12
 12
 Connector_Molex
-Molex_PicoBlade_53048-2610_1x13_P1.25mm_Horizontal
-Molex PicoBlade Connector System, 53048-2610, 13 Pins per row (http://www.molex.com/pdm_docs/sd/532530770_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53048-1310_1x13_P1.25mm_Horizontal
+Molex PicoBlade Connector System, 53048-1310, 13 Pins per row (http://www.molex.com/pdm_docs/sd/530480210_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade top entry
 0
 13
 13
 Connector_Molex
-Molex_PicoBlade_53048-2810_1x14_P1.25mm_Horizontal
-Molex PicoBlade Connector System, 53048-2810, 14 Pins per row (http://www.molex.com/pdm_docs/sd/532530770_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53048-1410_1x14_P1.25mm_Horizontal
+Molex PicoBlade Connector System, 53048-1410, 14 Pins per row (http://www.molex.com/pdm_docs/sd/530480210_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade top entry
 0
 14
 14
 Connector_Molex
-Molex_PicoBlade_53048-3010_1x15_P1.25mm_Horizontal
-Molex PicoBlade Connector System, 53048-3010, 15 Pins per row (http://www.molex.com/pdm_docs/sd/532530770_sd.pdf), generated with kicad-footprint-generator
+Molex_PicoBlade_53048-1510_1x15_P1.25mm_Horizontal
+Molex PicoBlade Connector System, 53048-1510, 15 Pins per row (http://www.molex.com/pdm_docs/sd/530480210_sd.pdf), generated with kicad-footprint-generator
 connector Molex PicoBlade top entry
 0
 15
@@ -45107,20 +45107,6 @@ UL/CSA 6x32mm Ceramic Slow Blow Fuse
 0
 2
 2
-GPS
-TRH-G2
-
-
-0
-12
-12
-GPS
-XA1110
-
-
-0
-10
-10
 Heatsink
 Heatsink_35x26mm_1xFixation3mm_Fischer-SK486-35
 Heatsink, 35mm x 26mm, 1x Fixation 3mm, Fischer SK486-35
@@ -53123,6 +53109,20 @@ QFN DFN_QFN
 107
 45
 Package_DFN_QFN
+QFN-44-1EP_8x8mm_P0.65mm_EP6.45x6.45mm
+QFN, 44 Pin (http://ww1.microchip.com/downloads/en/DeviceDoc/39935c.pdf (page 153)), generated with kicad-footprint-generator ipc_dfn_qfn_generator.py
+QFN DFN_QFN
+0
+70
+45
+Package_DFN_QFN
+QFN-44-1EP_8x8mm_P0.65mm_EP6.45x6.45mm_ThermalVias
+QFN, 44 Pin (http://ww1.microchip.com/downloads/en/DeviceDoc/39935c.pdf (page 153)), generated with kicad-footprint-generator ipc_dfn_qfn_generator.py
+QFN DFN_QFN
+0
+107
+45
+Package_DFN_QFN
 QFN-44-1EP_9x9mm_P0.65mm_EP7.5x7.5mm
 44-Lead Plastic Quad Flat, No Lead Package - 9x9 mm Body [QFN]; see section 10.3 of https://www.parallax.com/sites/default/files/downloads/P8X32A-Propeller-Datasheet-v1.4.0_0.pdf
 QFN 0.65
@@ -57897,6 +57897,13 @@ PowerDI 0.65
 13
 5
 Package_SON
+Fairchild_DualPower33-6_3x3mm
+Fairchild Power33 MOSFET package, 3x3mm (see https://www.fairchildsemi.com/datasheets/FD/FDMC8032L.pdf)
+mosfet
+0
+18
+6
+Package_SON
 Fairchild_MicroPak-6_1.0x1.45mm_P0.5mm
 Fairchild-specific MicroPak-6 1.0x1.45mm Pitch 0.5mm https://www.nxp.com/docs/en/application-note/AN10343.pdff
 Fairchild-specific MicroPak-6 1.0x1.45mm Pitch 0.5mm
@@ -61155,6 +61162,13 @@ Potentiometer_THT
 Potentiometer_Bourns_3339P_Vertical
 Potentiometer, vertical, Bourns 3339P, http://www.bourns.com/docs/Product-Datasheets/3339.pdf
 Potentiometer vertical Bourns 3339P
+0
+3
+3
+Potentiometer_THT
+Potentiometer_Bourns_3339P_Vertical_HandSoldering
+Potentiometer, vertical, Bourns 3339P, hand-soldering, http://www.bourns.com/docs/Product-Datasheets/3339.pdf
+Potentiometer vertical Bourns 3339P hand-soldering
 0
 3
 3
