@@ -1,4 +1,4 @@
-15313490683160112
+15332963180281112
 Antenna
 SMA
 
@@ -49272,6 +49272,34 @@ LED_SideEmitter_Rectangular Rectangular SideEmitter  Rectangular size 4.5x1.6mm^
 0
 2
 2
+LED_THT
+LED_VCCLite_5381H1_6.35x6.35mm
+Red 5381 Series LED VCCLite https://vcclite.com/wp-content/uploads/wpallimport/files/files/5381Series.pdf http://static.vcclite.com/pdf/Mounting%20Hole%20Pattern%202.pdf
+Red 5381 Series LED
+0
+2
+2
+LED_THT
+LED_VCCLite_5381H3_6.35x6.35mm
+Amber 5381 Series LED VCCLite https://vcclite.com/wp-content/uploads/wpallimport/files/files/5381Series.pdf http://static.vcclite.com/pdf/Mounting%20Hole%20Pattern%202.pdf
+Amber 5381 Series LED
+0
+2
+2
+LED_THT
+LED_VCCLite_5381H5_6.35x6.35mm
+Green 5381 Series LED VCCLite https://vcclite.com/wp-content/uploads/wpallimport/files/files/5381Series.pdf http://static.vcclite.com/pdf/Mounting%20Hole%20Pattern%202.pdf
+Green 5381 Series LED
+0
+2
+2
+LED_THT
+LED_VCCLite_5381H7_6.35x6.35mm
+Yellow 5381 Series LED VCCLite https://vcclite.com/wp-content/uploads/wpallimport/files/files/5381Series.pdf http://static.vcclite.com/pdf/Mounting%20Hole%20Pattern%202.pdf
+Yellow 5381 Series LED
+0
+2
+2
 MKRZero_Shield
 MKRZero_Shield
 
@@ -52332,6 +52360,34 @@ QFN Microchip 8E 16
 20
 17
 Package_DFN_QFN
+Microchip_DRQFN-44-1EP_5x5mm_P0.7mm_EP2.65x2.65mm
+QFN, 44 Pin, dual row (http://ww1.microchip.com/downloads/en/DeviceDoc/44L_VQFN_5x5mm_Dual_Row_%5BS3B%5D_C04-21399a.pdf)
+QFN dual row
+0
+49
+45
+Package_DFN_QFN
+Microchip_DRQFN-44-1EP_5x5mm_P0.7mm_EP2.65x2.65mm_ThermalVias
+QFN, 44 Pin, dual row (http://ww1.microchip.com/downloads/en/DeviceDoc/44L_VQFN_5x5mm_Dual_Row_%5BS3B%5D_C04-21399a.pdf)
+QFN dual row
+0
+59
+45
+Package_DFN_QFN
+Microchip_DRQFN-64-1EP_7x7mm_P0.65mm_EP4.1x4.1mm
+QFN, 64 Pin, dual row (http://ww1.microchip.com/downloads/en/DeviceDoc/64L_VQFN_7x7_Dual_Row_%5BSVB%5D_C04-21420a.pdf)
+QFN dual row
+0
+74
+65
+Package_DFN_QFN
+Microchip_DRQFN-64-1EP_7x7mm_P0.65mm_EP4.1x4.1mm_ThermalVias
+QFN, 64 Pin, dual row (http://ww1.microchip.com/downloads/en/DeviceDoc/64L_VQFN_7x7_Dual_Row_%5BSVB%5D_C04-21420a.pdf)
+QFN dual row
+0
+91
+65
+Package_DFN_QFN
 Microsemi_QFN-40-32-2EP_6x8mm_P0.5mm
 40-Lead (32-Lead Populated) Plastic Quad Flat, No Lead Package - 6x8x0.9mm Body (https://www.microsemi.com/document-portal/doc_download/131677-pd70224-data-sheet)
 QFN 0.5
@@ -53219,6 +53275,20 @@ QFN-56-1EP_8x8mm_P0.5mm_EP4.6x5.3mm
 QFN 0.5
 0
 65
+57
+Package_DFN_QFN
+QFN-56-1EP_8x8mm_P0.5mm_EP5.6x5.6mm
+QFN, 56 Pin (http://www.ti.com/lit/ds/symlink/tlc5957.pdf#page=23 (page 23f)), generated with kicad-footprint-generator ipc_dfn_qfn_generator.py
+QFN DFN_QFN
+0
+73
+57
+Package_DFN_QFN
+QFN-56-1EP_8x8mm_P0.5mm_EP5.6x5.6mm_ThermalVias
+QFN, 56 Pin (http://www.ti.com/lit/ds/symlink/tlc5957.pdf#page=23 (page 23f)), generated with kicad-footprint-generator ipc_dfn_qfn_generator.py
+QFN DFN_QFN
+0
+99
 57
 Package_DFN_QFN
 QFN-64-1EP_9x9mm_P0.5mm_EP4.7x4.7mm
@@ -57763,6 +57833,13 @@ SSOP 0.5
 0
 56
 56
+Package_SO
+Vishay_PowerPAK_1212-8_Single
+PowerPAK 1212-8 Single (https://www.vishay.com/docs/71656/ppak12128.pdf, https://www.vishay.com/docs/72597/72597.pdf)
+Vishay PowerPAK 1212-8 Single
+0
+5
+5
 Package_SO
 Vishay_PowerPAK_SO-8
 www.vishay.com/docs/73152/si7336adp.pdf
