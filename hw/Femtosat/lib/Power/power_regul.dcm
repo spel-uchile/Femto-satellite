@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP LT1790AIS6-2.5
+D The LT1790 is a family of SOT-23 micropower low dropout series references that combine high accuracy and low drift with low power dissipation and small package size.
+K LT1790AIS6-2.5, 2.5V, SOT-23, reference voltage, regulator
+F http://cds.linear.com/docs/en/datasheet/1790fc.pdf
+$ENDCMP
+#
+#End Doc Library
