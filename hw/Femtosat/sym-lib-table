@@ -3,4 +3,5 @@
   (lib (name GPS)(type Legacy)(uri ${KIPRJMOD}/lib/GPS/GPS.lib)(options "")(descr ""))
   (lib (name transceptor)(type Legacy)(uri ${KIPRJMOD}/lib/Transceptor/transceptor.lib)(options "")(descr ""))
   (lib (name Arduino)(type Legacy)(uri "${KIPRJMOD}/lib/Arduino KiCad/Arduino.lib")(options "")(descr ""))
+  (lib (name power_regul)(type Legacy)(uri ${KIPRJMOD}/lib/Power/power_regul.lib)(options "")(descr ""))
 )
