@@ -2,4 +2,5 @@
   (lib (name Antenna)(type KiCad)(uri ${KIPRJMOD}/lib/Antenna/Antenna.pretty)(options "")(descr ""))
   (lib (name GPS)(type KiCad)(uri ${KIPRJMOD}/lib/GPS/GPS.pretty)(options "")(descr ""))
   (lib (name Transceptor)(type KiCad)(uri ${KIPRJMOD}/lib/Transceptor/Transceptor.pretty)(options "")(descr ""))
+  (lib (name Interrupt)(type KiCad)(uri ${KIPRJMOD}/lib/Interrupt/Interrupt.pretty)(options "")(descr ""))
 )
