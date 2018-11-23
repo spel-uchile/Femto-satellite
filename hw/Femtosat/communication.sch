@@ -214,4 +214,6 @@ Wire Wire Line
 	6450 3100 6400 3100
 Text Label 6450 2950 0    50   ~ 0
 GND
+Text Label 6300 3250 2    50   ~ 0
+ANT
 $EndSCHEMATC

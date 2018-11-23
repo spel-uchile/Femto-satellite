@@ -197,22 +197,15 @@ $EndComp
 $Comp
 L Device:C Cr2
 U 1 1 5BB3073D
-P 4000 3600
-F 0 "Cr2" H 4115 3646 50  0000 L CNN
-F 1 "1uF" H 4115 3555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 4038 3450 50  0001 C CNN
-F 3 "~" H 4000 3600 50  0001 C CNN
-	1    4000 3600
+P 3600 3600
+F 0 "Cr2" H 3715 3646 50  0000 L CNN
+F 1 "1uF" H 3715 3555 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3638 3450 50  0001 C CNN
+F 3 "~" H 3600 3600 50  0001 C CNN
+	1    3600 3600
 	-1   0    0    -1  
 $EndComp
-Wire Wire Line
-	3800 3400 4000 3400
 Connection ~ 4150 3400
-Wire Wire Line
-	4000 3450 4000 3400
-Connection ~ 4000 3400
-Wire Wire Line
-	4000 3400 4150 3400
 Wire Wire Line
 	2300 3400 2450 3400
 Wire Wire Line
@@ -223,7 +216,7 @@ Wire Wire Line
 Wire Wire Line
 	2450 3750 2450 3800
 Wire Wire Line
-	4000 3750 4000 3800
+	3600 3750 3600 3800
 $Comp
 L power:GND #PWR0107
 U 1 1 5BB332C0
@@ -238,12 +231,12 @@ $EndComp
 $Comp
 L power:GND #PWR0108
 U 1 1 5BB332E6
-P 4000 3800
-F 0 "#PWR0108" H 4000 3550 50  0001 C CNN
-F 1 "GND" H 4005 3627 50  0000 C CNN
-F 2 "" H 4000 3800 50  0001 C CNN
-F 3 "" H 4000 3800 50  0001 C CNN
-	1    4000 3800
+P 3600 3800
+F 0 "#PWR0108" H 3600 3550 50  0001 C CNN
+F 1 "GND" H 3605 3627 50  0000 C CNN
+F 2 "" H 3600 3800 50  0001 C CNN
+F 3 "" H 3600 3800 50  0001 C CNN
+	1    3600 3800
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -290,7 +283,7 @@ Text Label 3350 4350 2    50   ~ 0
 VBAT
 Text Label 3800 3400 0    50   ~ 0
 3V3
-Text HLabel 2300 4800 0    50   Input ~ 0
+Text HLabel 2300 4700 0    50   Input ~ 0
 VBAT
 $Comp
 L Connector:Conn_01x02_Male J4
@@ -303,12 +296,16 @@ F 3 "~" H 2700 4700 50  0001 C CNN
 	1    2700 4700
 	-1   0    0    -1  
 $EndComp
-Text Label 2300 4700 0    50   ~ 0
-GND
 Text Label 2300 4800 0    50   ~ 0
+GND
+Text Label 2300 4700 0    50   ~ 0
 VBAT
 Wire Wire Line
 	2500 4700 2300 4700
 Wire Wire Line
 	2300 4800 2500 4800
+Wire Wire Line
+	3800 3400 4150 3400
+Wire Wire Line
+	3600 3450 3600 3400
 $EndSCHEMATC

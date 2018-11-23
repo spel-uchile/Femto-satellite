@@ -290,7 +290,7 @@ Text Label 3350 4350 2    50   ~ 0
 VBAT
 Text Label 3800 3400 0    50   ~ 0
 3V3
-Text HLabel 2300 4800 0    50   Input ~ 0
+Text HLabel 2300 4700 0    50   Input ~ 0
 VBAT
 $Comp
 L Connector:Conn_01x02_Male J4
@@ -303,9 +303,9 @@ F 3 "~" H 2700 4700 50  0001 C CNN
 	1    2700 4700
 	-1   0    0    -1  
 $EndComp
-Text Label 2300 4700 0    50   ~ 0
-GND
 Text Label 2300 4800 0    50   ~ 0
+GND
+Text Label 2300 4700 0    50   ~ 0
 VBAT
 Wire Wire Line
 	2500 4700 2300 4700
