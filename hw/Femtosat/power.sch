@@ -240,17 +240,6 @@ F 3 "" H 3600 3800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Jumper_NC_Dual JP1
-U 1 1 5BF7CE13
-P 2900 4350
-F 0 "JP1" H 2900 4589 50  0000 C CNN
-F 1 "POW_SEL" H 2900 4498 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 2900 4350 50  0001 C CNN
-F 3 "~" H 2900 4350 50  0001 C CNN
-	1    2900 4350
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR0113
 U 1 1 5BF7FABB
 P 2900 3800
@@ -264,48 +253,57 @@ $EndComp
 Wire Wire Line
 	2900 3800 2900 3750
 Text Label 3600 3400 2    50   ~ 0
-REG_OUT
+REG_USB
 Wire Wire Line
 	3250 3400 3600 3400
-Wire Wire Line
-	2900 4450 2900 4500
-Wire Wire Line
-	2900 4500 3100 4500
-Text Label 3100 4500 2    50   ~ 0
-3V3
-Text Label 2300 4350 0    50   ~ 0
-REG_OUT
-Wire Wire Line
-	2300 4350 2650 4350
-Wire Wire Line
-	3150 4350 3350 4350
-Text Label 3350 4350 2    50   ~ 0
-VBAT
 Text Label 3800 3400 0    50   ~ 0
 3V3
-Text HLabel 2300 4700 0    50   Input ~ 0
+Text HLabel 2600 4300 0    50   Input ~ 0
 VBAT
 $Comp
 L Connector:Conn_01x02_Male J4
 U 1 1 5BFD4B3E
-P 2700 4700
-F 0 "J4" H 2672 4674 50  0000 R CNN
-F 1 "Battery" H 2672 4583 50  0000 R CNN
-F 2 "Connector_JST:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal" H 2700 4700 50  0001 C CNN
-F 3 "~" H 2700 4700 50  0001 C CNN
-	1    2700 4700
+P 3000 4300
+F 0 "J4" H 2972 4274 50  0000 R CNN
+F 1 "Battery" H 2972 4183 50  0000 R CNN
+F 2 "Connector_JST:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal" H 3000 4300 50  0001 C CNN
+F 3 "~" H 3000 4300 50  0001 C CNN
+	1    3000 4300
 	-1   0    0    -1  
 $EndComp
-Text Label 2300 4800 0    50   ~ 0
+Text Label 2600 4400 0    50   ~ 0
 GND
-Text Label 2300 4700 0    50   ~ 0
+Text Label 2600 4300 0    50   ~ 0
 VBAT
 Wire Wire Line
-	2500 4700 2300 4700
+	2800 4300 2600 4300
 Wire Wire Line
-	2300 4800 2500 4800
+	2600 4400 2800 4400
 Wire Wire Line
 	3800 3400 4150 3400
 Wire Wire Line
 	3600 3450 3600 3400
+$Comp
+L Interrupter:AV4524 U3
+U 1 1 5BFC5BF6
+P 2900 4800
+F 0 "U3" H 3178 4846 50  0000 L CNN
+F 1 "AV4524" H 3178 4755 50  0000 L CNN
+F 2 "Interrupt:AV4524" H 2850 4800 50  0001 C CNN
+F 3 "" H 2850 4800 50  0001 C CNN
+	1    2900 4800
+	-1   0    0    -1  
+$EndComp
+Text Label 3450 4700 2    50   ~ 0
+3V3
+Text Label 3450 4900 2    50   ~ 0
+VBAT
+Text Label 3450 4800 2    50   ~ 0
+REG_USB
+Wire Wire Line
+	3450 4800 3100 4800
+Wire Wire Line
+	3100 4900 3450 4900
+Wire Wire Line
+	3100 4700 3450 4700
 $EndSCHEMATC

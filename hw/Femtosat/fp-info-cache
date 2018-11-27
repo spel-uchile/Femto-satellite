@@ -1,4 +1,4 @@
-15086727321815559
+15088270586442559
 Antenna
 SMA
 
@@ -43819,6 +43819,13 @@ XA1110
 0
 10
 10
+GPS
+XA1110_I2C
+
+
+0
+5
+5
 Heatsink
 Heatsink_35x26mm_1xFixation3mm_Fischer-SK486-35
 Heatsink, 35mm x 26mm, 1x Fixation 3mm, Fischer SK486-35
