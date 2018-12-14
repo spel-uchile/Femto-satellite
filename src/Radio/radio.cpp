@@ -14,18 +14,18 @@ void Radio::init(void) {
     //digitalWrite(rst_pin_, LOW);
     delay(1500);
     if (!rf69.init()) {
-        Serial.println(F("Initialization failed"));
+        SerialUSB.println(F("Initialization failed"));
     }
     //driver.setCRCPolynomial(driver.CRC_CCITT);
     driver.setHeaderFlags(0x7E); 
     driver.setFrequency(430.00, 0.05); 
     driver.setTxPower(20);
     if (!driver.setModemConfig(driver.FSK_Rb2Fd5)) {
-        Serial.println(F("Configuration error"));    
+        SerialUSB.println(F("Configuration error"));    
     }
     rf69.setRetries(3);
-    Serial.println(F("Set Tx Power = 20 DBm"));
-    Serial.println(F("Set configuration = FSK_Rb2Fd5"));  
+    SerialUSB.println(F("Set Tx Power = 20 DBm"));
+    SerialUSB.println(F("Set configuration = FSK_Rb2Fd5"));  
 }
 
 /**
@@ -36,7 +36,7 @@ void Radio::init(void) {
  */
 void Radio::sendFrame(uint8_t frame[], int frame_size) {
     if (!rf69.sendtoWait(frame, frame_size, addr2_))
-        Serial.println(F("sendtoWait failed"));
+        SerialUSB.println(F("sendtoWait failed"));
 }
 
 //void Radio::updateBeacon(AtmsData *atmsData, GpsData *gpsData, VectorInt16 *gyroData)
@@ -109,26 +109,26 @@ void Radio::displayFrame() {
     Serial.print("    IMU3: ");
     Serial.println(beacon.IMU3);
     */
-    Serial.print("HH:MM:SS: ");
-    Serial.print(beacon.GPS_HH);
-    Serial.print(":");
-    Serial.print(beacon.GPS_MM);
-    Serial.print(":");
-    Serial.print(beacon.GPS_SS);
-    Serial.print("    Validity: ");
-    Serial.print(beacon.GPS_validity, BIN);
-    Serial.print("    Sat: ");
-    Serial.print(beacon.GPS_Sat);
-    Serial.print("    Location: ");
-    Serial.print(beacon.GPS_Lat, 6);
-    Serial.print(",");
-    Serial.print(beacon.GPS_Lng, 6);
-    Serial.print("    Altitude (GPS): ");
-    Serial.print(beacon.GPS_Alt);
-    Serial.print("    Course: ");
-    Serial.print(beacon.GPS_Crse);
-    Serial.print("    Speed: ");
-    Serial.println(beacon.GPS_Speed);
+    SerialUSB.print("HH:MM:SS: ");
+    SerialUSB.print(beacon.GPS_HH);
+    SerialUSB.print(":");
+    SerialUSB.print(beacon.GPS_MM);
+    SerialUSB.print(":");
+    SerialUSB.print(beacon.GPS_SS);
+    SerialUSB.print("    Validity: ");
+    SerialUSB.print(beacon.GPS_validity, BIN);
+    SerialUSB.print("    Sat: ");
+    SerialUSB.print(beacon.GPS_Sat);
+    SerialUSB.print("    Location: ");
+    SerialUSB.print(beacon.GPS_Lat, 6);
+    SerialUSB.print(",");
+    SerialUSB.print(beacon.GPS_Lng, 6);
+    SerialUSB.print("    Altitude (GPS): ");
+    SerialUSB.print(beacon.GPS_Alt);
+    SerialUSB.print("    Course: ");
+    SerialUSB.print(beacon.GPS_Crse);
+    SerialUSB.print("    Speed: ");
+    SerialUSB.println(beacon.GPS_Speed);
 }
 
 void Radio::ping(uint8_t to) {
