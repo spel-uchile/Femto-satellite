@@ -107,10 +107,6 @@ Text Label 6350 3300 2    50   ~ 0
 USB_N
 Text Label 6350 3400 2    50   ~ 0
 PIN_1
-Text Label 6350 3600 2    50   ~ 0
-PIN_7
-Text Label 6350 3700 2    50   ~ 0
-PIN_6
 Text Label 6350 3800 2    50   ~ 0
 MISO
 Text Label 6350 3900 2    50   ~ 0
@@ -548,4 +544,8 @@ NoConn ~ 7050 3350
 NoConn ~ 8050 3350
 Text Label 6350 3500 2    50   ~ 0
 TRX_INT
+Text Label 6350 3600 2    50   ~ 0
+TRX_NSS
+Text Label 6350 3700 2    50   ~ 0
+TRX_RST
 $EndSCHEMATC
