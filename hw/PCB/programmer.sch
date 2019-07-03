@@ -4,7 +4,7 @@ EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 5 5
+Sheet 5 6
 Title ""
 Date ""
 Rev ""
@@ -14,52 +14,164 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L Connector:Conn_01x04_Male J2
-U 1 1 5BFFAA36
-P 4750 3100
-F 0 "J2" H 4722 2982 50  0000 R CNN
-F 1 "Programmer" H 4722 3073 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 4750 3100 50  0001 C CNN
-F 3 "~" H 4750 3100 50  0001 C CNN
-	1    4750 3100
-	-1   0    0    1   
-$EndComp
-Text HLabel 4200 2700 0    50   Input ~ 0
+Text HLabel 4850 2900 0    50   Input ~ 0
 3V3
-Text HLabel 4200 2900 0    50   Input ~ 0
+Text HLabel 4850 2600 0    50   Input ~ 0
 SWDIO
-Text HLabel 4200 3000 0    50   Input ~ 0
+Text HLabel 4850 2700 0    50   Input ~ 0
 SWCLK
-Text HLabel 4200 3100 0    50   Input ~ 0
+Text HLabel 4850 3000 0    50   Input ~ 0
 RESET
-Text HLabel 4200 3200 0    50   Input ~ 0
+Text HLabel 4850 2800 0    50   Input ~ 0
 GND
 $Comp
 L Device:R R1
 U 1 1 5BFFC4E5
-P 4450 2700
-F 0 "R1" V 4550 2700 50  0000 C CNN
-F 1 "1k" V 4450 2700 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 4380 2700 50  0001 C CNN
-F 3 "~" H 4450 2700 50  0001 C CNN
-	1    4450 2700
+P 6200 2350
+F 0 "R1" V 6300 2350 50  0000 C CNN
+F 1 "1k" V 6200 2350 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 6130 2350 50  0001 C CNN
+F 3 "~" H 6200 2350 50  0001 C CNN
+	1    6200 2350
+	1    0    0    -1  
+$EndComp
+Text Label 5900 2550 0    50   ~ 0
+SWCLK
+Text Label 4900 2700 0    50   ~ 0
+SWCLK
+$Comp
+L Connector:Conn_01x05_Male J2
+U 1 1 5D1D6EC1
+P 5450 2800
+F 0 "J2" H 5422 2732 50  0000 R CNN
+F 1 "Programmer" H 5422 2823 50  0000 R CNN
+F 2 "" H 5450 2800 50  0001 C CNN
+F 3 "~" H 5450 2800 50  0001 C CNN
+	1    5450 2800
+	-1   0    0    1   
+$EndComp
+Text Label 4900 3000 0    50   ~ 0
+RESET
+$Comp
+L Device:C C6
+U 1 1 5D1DAA3D
+P 7600 2850
+F 0 "C6" H 7715 2896 50  0000 L CNN
+F 1 "100nF" H 7715 2805 50  0000 L CNN
+F 2 "" H 7638 2700 50  0001 C CNN
+F 3 "~" H 7600 2850 50  0001 C CNN
+	1    7600 2850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6650 2550 6850 2550
+Wire Wire Line
+	6650 2500 6650 2550
+Wire Wire Line
+	7600 3000 7600 3050
+$Comp
+L Switch:SW_Push_Dual SW1
+U 1 1 5D1E1E72
+P 6650 2800
+F 0 "SW1" V 6696 2512 50  0000 R CNN
+F 1 "Reset_push" V 6605 2512 50  0000 R CNN
+F 2 "" H 6650 3000 50  0001 C CNN
+F 3 "~" H 6650 3000 50  0001 C CNN
+	1    6650 2800
 	0    -1   -1   0   
 $EndComp
-Text Label 4900 2700 2    50   ~ 0
-SWCLK
 Wire Wire Line
-	4900 2700 4600 2700
+	6650 3000 6850 3000
+Connection ~ 6650 3000
 Wire Wire Line
-	4300 2700 4200 2700
-Text Label 4250 3000 0    50   ~ 0
-SWCLK
+	6650 3000 6650 3050
+$Comp
+L Device:R R2
+U 1 1 5D1DB464
+P 6650 2350
+F 0 "R2" H 6720 2396 50  0000 L CNN
+F 1 "10k" H 6720 2305 50  0000 L CNN
+F 2 "" V 6580 2350 50  0001 C CNN
+F 3 "~" H 6650 2350 50  0001 C CNN
+	1    6650 2350
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	4550 2900 4200 2900
+	7600 2550 7600 2700
+Connection ~ 6850 2550
+Connection ~ 6650 2550
 Wire Wire Line
-	4200 3000 4550 3000
+	6850 2550 7600 2550
+$Comp
+L power:GND #PWR?
+U 1 1 5D1DAC80
+P 6650 3050
+F 0 "#PWR?" H 6650 2800 50  0001 C CNN
+F 1 "GND" H 6655 2877 50  0000 C CNN
+F 2 "" H 6650 3050 50  0001 C CNN
+F 3 "" H 6650 3050 50  0001 C CNN
+	1    6650 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5D1DFA15
+P 7600 3050
+F 0 "#PWR?" H 7600 2800 50  0001 C CNN
+F 1 "GND" H 7605 2877 50  0000 C CNN
+F 2 "" H 7600 3050 50  0001 C CNN
+F 3 "" H 7600 3050 50  0001 C CNN
+	1    7600 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5D1DAF69
+P 6650 2150
+F 0 "#PWR?" H 6650 2000 50  0001 C CNN
+F 1 "+3V3" H 6665 2323 50  0000 C CNN
+F 2 "" H 6650 2150 50  0001 C CNN
+F 3 "" H 6650 2150 50  0001 C CNN
+	1    6650 2150
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	4550 3100 4200 3100
+	6650 2150 6650 2200
 Wire Wire Line
-	4200 3200 4550 3200
+	6650 2550 6650 2600
+Wire Wire Line
+	6850 2600 6850 2550
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5D1EBFB7
+P 6200 2150
+F 0 "#PWR?" H 6200 2000 50  0001 C CNN
+F 1 "+3V3" H 6215 2323 50  0000 C CNN
+F 2 "" H 6200 2150 50  0001 C CNN
+F 3 "" H 6200 2150 50  0001 C CNN
+	1    6200 2150
+	1    0    0    -1  
+$EndComp
+Text Label 4900 2600 0    50   ~ 0
+SWDIO
+Text Label 4900 2800 0    50   ~ 0
+GND
+Text Label 4900 2900 0    50   ~ 0
+3V3
+Wire Wire Line
+	4850 2600 5250 2600
+Wire Wire Line
+	4850 2700 5250 2700
+Wire Wire Line
+	4850 2800 5250 2800
+Wire Wire Line
+	5200 2900 4850 2900
+Wire Wire Line
+	4850 3000 5250 3000
+Wire Wire Line
+	6200 2200 6200 2150
+Wire Wire Line
+	6200 2500 6200 2550
+Wire Wire Line
+	6200 2550 5900 2550
 $EndSCHEMATC

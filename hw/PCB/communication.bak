@@ -1,10 +1,10 @@
-EESchema Schematic File Version 4
+EESchema Schematic File Version 5
 LIBS:Femtosat-cache
 EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 5
+Sheet 4 6
 Title ""
 Date ""
 Rev ""
@@ -15,10 +15,12 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L RF_AM_FM:RFM69HCW U4
+L RF_Module:RFM69HCW U4
 U 1 1 5BD13EFB
 P 5600 3550
-F 0 "U4" H 5250 4000 50  0000 C CNN
+AR Path="/5BD13EFB" Ref="U4"  Part="1" 
+AR Path="/5BD13DD6/5BD13EFB" Ref="U3"  Part="1" 
+F 0 "U3" H 5250 4000 50  0000 C CNN
 F 1 "RFM69HCW" H 5800 4000 50  0000 C CNN
 F 2 "Transceptor:RFM69HCW" H 2300 5200 50  0001 C CNN
 F 3 "http://www.hoperf.com/upload/rf/RFM69HCW-V1.1.pdf" H 2300 5200 50  0001 C CNN
@@ -28,12 +30,12 @@ $EndComp
 $Comp
 L antenna:SMA J3
 U 1 1 5BD153FD
-P 6700 3250
-F 0 "J3" H 6800 3225 50  0000 L CNN
-F 1 "SMA" H 6800 3134 50  0000 L CNN
-F 2 "Antenna:SMA" H 6700 3250 50  0001 C CNN
-F 3 "" H 6700 3250 50  0001 C CNN
-	1    6700 3250
+P 6600 3250
+F 0 "J3" H 6700 3225 50  0000 L CNN
+F 1 "SMA" H 6700 3134 50  0000 L CNN
+F 2 "Antenna:SMA" H 6600 3250 50  0001 C CNN
+F 3 "" H 6600 3250 50  0001 C CNN
+	1    6600 3250
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -60,8 +62,6 @@ F 3 "" H 5600 4250 50  0001 C CNN
 	1    5600 4250
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6550 3250 6100 3250
 Text Label 4850 3750 0    50   ~ 0
 RESET
 Text Label 4850 3550 0    50   ~ 0
@@ -108,8 +108,6 @@ Wire Wire Line
 	6300 3450 6100 3450
 Wire Wire Line
 	5600 3050 5600 2950
-Text Label 5750 2950 2    50   ~ 0
-3.3V
 Text HLabel 4150 3000 0    50   Input ~ 0
 3.3V
 Text HLabel 4150 3100 0    50   Input ~ 0
@@ -163,57 +161,95 @@ Text Label 4400 3000 2    50   ~ 0
 $Comp
 L power:GND #PWR0110
 U 1 1 5BD2EB6A
-P 6700 3500
-F 0 "#PWR0110" H 6700 3250 50  0001 C CNN
-F 1 "GND" H 6705 3327 50  0000 C CNN
-F 2 "" H 6700 3500 50  0001 C CNN
-F 3 "" H 6700 3500 50  0001 C CNN
-	1    6700 3500
+P 6600 3500
+F 0 "#PWR0110" H 6600 3250 50  0001 C CNN
+F 1 "GND" H 6605 3327 50  0000 C CNN
+F 2 "" H 6600 3500 50  0001 C CNN
+F 3 "" H 6600 3500 50  0001 C CNN
+	1    6600 3500
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6700 3450 6700 3500
+	6600 3450 6600 3500
 $Comp
-L Device:C Ca7
+L Device:C Ct1
 U 1 1 5BD8FE47
-P 6250 2850
-F 0 "Ca7" V 6150 2850 50  0000 C CNN
-F 1 "C" V 6250 2850 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6288 2700 50  0001 C CNN
-F 3 "~" H 6250 2850 50  0001 C CNN
-	1    6250 2850
-	0    1    1    0   
+P 7350 3300
+F 0 "Ct1" H 7450 3200 50  0000 C CNN
+F 1 "0.1uF" H 7350 3400 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 7388 3150 50  0001 C CNN
+F 3 "~" H 7350 3300 50  0001 C CNN
+	1    7350 3300
+	-1   0    0    1   
 $EndComp
 $Comp
-L Device:C Cb7
+L Device:C Ct2
 U 1 1 5BD90136
-P 6250 3100
-F 0 "Cb7" V 6150 3100 50  0000 C CNN
-F 1 "C" V 6250 3100 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6288 2950 50  0001 C CNN
-F 3 "~" H 6250 3100 50  0001 C CNN
-	1    6250 3100
-	0    1    1    0   
+P 7050 3300
+F 0 "Ct2" H 7150 3200 50  0000 C CNN
+F 1 "10uF" H 7050 3400 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 7088 3150 50  0001 C CNN
+F 3 "~" H 7050 3300 50  0001 C CNN
+	1    7050 3300
+	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	6100 2850 6050 2850
+	7350 3150 7350 3100
 Wire Wire Line
-	6050 2850 6050 2950
+	7050 3100 7050 3150
 Wire Wire Line
-	6050 3100 6100 3100
+	7350 3450 7350 3500
 Wire Wire Line
-	5600 2950 6050 2950
-Connection ~ 6050 2950
-Wire Wire Line
-	6050 2950 6050 3100
-Wire Wire Line
-	6400 2850 6450 2850
-Wire Wire Line
-	6450 2850 6450 3100
-Wire Wire Line
-	6450 3100 6400 3100
-Text Label 6450 2950 0    50   ~ 0
-GND
+	7050 3500 7050 3450
 Text Label 6300 3250 2    50   ~ 0
 ANT
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5D1D8537
+P 5600 2950
+F 0 "#PWR?" H 5600 2800 50  0001 C CNN
+F 1 "+3V3" H 5615 3123 50  0000 C CNN
+F 2 "" H 5600 2950 50  0001 C CNN
+F 3 "" H 5600 2950 50  0001 C CNN
+	1    5600 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5D1D89F4
+P 7200 3050
+F 0 "#PWR?" H 7200 2900 50  0001 C CNN
+F 1 "+3V3" H 7215 3223 50  0000 C CNN
+F 2 "" H 7200 3050 50  0001 C CNN
+F 3 "" H 7200 3050 50  0001 C CNN
+	1    7200 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5D1D8ED6
+P 7200 3550
+F 0 "#PWR?" H 7200 3300 50  0001 C CNN
+F 1 "GND" H 7205 3377 50  0000 C CNN
+F 2 "" H 7200 3550 50  0001 C CNN
+F 3 "" H 7200 3550 50  0001 C CNN
+	1    7200 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7050 3100 7200 3100
+Wire Wire Line
+	7050 3500 7200 3500
+Wire Wire Line
+	7200 3550 7200 3500
+Connection ~ 7200 3500
+Wire Wire Line
+	7200 3500 7350 3500
+Wire Wire Line
+	7200 3100 7200 3050
+Connection ~ 7200 3100
+Wire Wire Line
+	7200 3100 7350 3100
+Wire Wire Line
+	6100 3250 6450 3250
 $EndSCHEMATC
