@@ -1,4 +1,4 @@
-15140635583667113
+15142152833923264
 Antenna
 SMA
 
@@ -61711,6 +61711,13 @@ Resistor{space}Radial_Power{space}series{space}Radial{space}pin{space}pitch{spac
 0
 2
 2
+SD
+microSD_socket
+
+
+0
+12
+11
 Sensor_Audio
 Infineon_PG-LLGA-5-1
 Infineon_PG-LLGA-5-1{space}StepUp{space}generated{space}footprint,{space}https://www.infineon.com/cms/en/product/packages/PG-LLGA/PG-LLGA-5-1/
