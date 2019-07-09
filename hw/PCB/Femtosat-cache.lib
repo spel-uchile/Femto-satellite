@@ -94,6 +94,31 @@ X Pin_5 5 200 -200 150 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
+# Connector_Conn_Coaxial
+#
+DEF Connector_Conn_Coaxial J 0 40 Y N 1 F N
+F0 "J" 10 120 50 H V C CNN
+F1 "Connector_Conn_Coaxial" 115 0 50 V V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ *BNC*
+ *SMA*
+ *SMB*
+ *SMC*
+ *Cinch*
+$ENDFPLIST
+DRAW
+A -2 0 71 1636 0 0 1 10 N -70 20 70 0
+A -1 0 71 0 -1638 0 1 10 N 70 0 -70 -20
+C 0 0 20 0 1 8 N
+P 2 0 1 0 -100 0 -20 0 N
+P 2 0 1 0 0 -100 0 -70 N
+X In 1 -200 0 100 R 50 50 1 1 P
+X Ext 2 0 -200 100 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 # Connector_Micro_SD_Card_Det
 #
 DEF Connector_Micro_SD_Card_Det J 0 40 Y Y 1 F N
@@ -398,34 +423,6 @@ X 1 1 -200 0 100 R 50 50 0 1 P
 X 2 2 200 0 100 L 50 50 0 1 P
 X 3 3 -200 -200 100 R 50 50 0 1 P
 X 4 4 200 -200 100 L 50 50 0 1 P
-ENDDRAW
-ENDDEF
-#
-# antenna_SMA
-#
-DEF antenna_SMA J 0 40 Y N 1 F N
-F0 "J" 10 120 50 H V C CNN
-F1 "antenna_SMA" 115 0 50 V V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-$FPLIST
- *BNC*
- *SMA*
- *SMB*
- *SMC*
- *Cinch*
-$ENDFPLIST
-DRAW
-A -2 0 71 1636 0 0 1 10 N -70 20 70 0
-A -1 0 71 0 -1638 0 1 10 N 70 0 -70 -20
-C 0 0 20 0 1 8 N
-P 2 0 1 0 -50 0 -20 0 N
-P 2 0 1 0 0 -100 0 -70 N
-X In 1 -150 0 100 R 50 50 1 1 P
-X Ext 2 0 -200 100 U 50 50 1 1 P
-X ~ 3 0 -200 100 U 50 50 1 1 I N
-X ~ 4 0 -200 100 U 50 50 1 1 I N
-X ~ 5 0 -200 100 U 50 50 1 1 I N
 ENDDRAW
 ENDDEF
 #

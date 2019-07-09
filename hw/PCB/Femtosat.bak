@@ -56,8 +56,6 @@ Text Label 6350 2200 2    50   ~ 0
 GND
 Text Label 6350 2400 2    50   ~ 0
 RESET
-Text Label 4050 2900 0    50   ~ 0
-SD_CD
 Text Label 6350 2600 2    50   ~ 0
 USB_P
 Text Label 6350 2700 2    50   ~ 0
@@ -94,8 +92,6 @@ Wire Wire Line
 	4400 2600 4050 2600
 Wire Wire Line
 	4050 2700 4400 2700
-Wire Wire Line
-	4400 2800 4050 2800
 Wire Wire Line
 	4050 2900 4400 2900
 Wire Wire Line
@@ -459,7 +455,7 @@ Wire Wire Line
 	6650 3700 7000 3700
 Wire Wire Line
 	6650 3800 7000 3800
-Text Label 4050 2800 0    50   ~ 0
+Text Label 4050 2900 0    50   ~ 0
 GPS_INT
 Text Label 8150 2500 2    50   ~ 0
 RX
@@ -527,4 +523,5 @@ NoConn ~ 6000 2500
 NoConn ~ 4400 2300
 NoConn ~ 4400 2200
 NoConn ~ 4400 2000
+NoConn ~ 4400 2800
 $EndSCHEMATC

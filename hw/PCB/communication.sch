@@ -27,17 +27,6 @@ F 3 "http://www.hoperf.com/upload/rf/RFM69HCW-V1.1.pdf" H 2300 5200 50  0001 C C
 	1    5600 3550
 	1    0    0    -1  
 $EndComp
-$Comp
-L antenna:SMA J3
-U 1 1 5BD153FD
-P 6600 3250
-F 0 "J3" H 6700 3225 50  0000 L CNN
-F 1 "SMA" H 6700 3134 50  0000 L CNN
-F 2 "Antenna:SMA" H 6600 3250 50  0001 C CNN
-F 3 "" H 6600 3250 50  0001 C CNN
-	1    6600 3250
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5500 4150 5500 4200
 Wire Wire Line
@@ -250,8 +239,19 @@ Wire Wire Line
 Connection ~ 7200 3100
 Wire Wire Line
 	7200 3100 7350 3100
-Wire Wire Line
-	6100 3250 6450 3250
 Text Label 7200 3100 2    50   ~ 0
 3.3V
+$Comp
+L Connector:Conn_Coaxial J3
+U 1 1 5D24BE5C
+P 6600 3250
+F 0 "J3" H 6700 3225 50  0000 L CNN
+F 1 "U.FL" H 6700 3134 50  0000 L CNN
+F 2 "Connector_Coaxial:U.FL_Hirose_U.FL-R-SMT-1_Vertical" H 6600 3250 50  0001 C CNN
+F 3 " ~" H 6600 3250 50  0001 C CNN
+	1    6600 3250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6100 3250 6400 3250
 $EndSCHEMATC
