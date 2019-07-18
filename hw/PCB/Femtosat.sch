@@ -354,7 +354,7 @@ $EndComp
 Wire Wire Line
 	8000 2500 8150 2500
 Text Label 6650 2200 0    50   ~ 0
-3V3
+VBAT
 Text Label 6650 2500 0    50   ~ 0
 TX
 Wire Wire Line
