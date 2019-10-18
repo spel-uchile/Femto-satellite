@@ -9,18 +9,7 @@
 #include <RHReliableDatagram.h>
 #include <SPI.h>
 #include <RH_RF69.h>
-//#include "logger.h"
-//#include "atms_data.h"
 #include "gps_data.h"
-//#include "helper_3dmath.h"
-
-#define SEND_DATA 0
-#define SEND_PICTURE 1
-#define SEND_BEACON 2
-#define PING 3
-#define ENABLE_LOW_POWER_MODE 4
-#define DISABLE_LOW_POWER_MODE 5
-#define HELP 6
 
 /**
  * @class Radio
@@ -39,16 +28,13 @@ typedef struct {
     float IMU2;
     float IMU3;
     */
-    float GPS_Lat;
-    float GPS_Lng;
-    float GPS_Alt;
-    float GPS_Crse;
-    float GPS_Speed;
     uint8_t GPS_HH;
     uint8_t GPS_MM;
     uint8_t GPS_SS;
-    uint8_t GPS_validity;
     uint32_t GPS_Sat;
+    float GPS_Lat;
+    float GPS_Lng;
+    float GPS_Alt;
 } frame_t;
 
 class Radio {
@@ -97,6 +83,7 @@ public:
     // methods
     void init(void);
     //void updateBeacon(AtmsData *atmsData, GpsData *gpsData, VectorInt16 *gyroData);
+    bool available(void);
     void updateBeacon(GpsData * gpsData);
     void send_data();
     void ping(uint8_t to);
@@ -105,10 +92,10 @@ public:
     uint8_t read_command(void);
     void sendFrame(uint8_t frame[], int frame_size);
     void displayData(double dataD[], float dataF[], uint8_t dataU8[], uint32_t dataU32);
-    void read_frame(void);
+    void readFrame(uint8_t* frame);
     bool lowPowerMode(void);
+    void normalMode(void);
 
 private:
     // methods
-    void displayFrame(void);
 };
