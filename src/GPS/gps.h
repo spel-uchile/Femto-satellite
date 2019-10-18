@@ -35,9 +35,8 @@
         // Mutator functions
         void init(void);
         void updateData(void);
-        void checkValidity(void);
+        uint8_t checkValidity(void);
 
     private:
         int gps_baudrate;
  };
-
