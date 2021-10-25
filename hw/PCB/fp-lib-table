@@ -4,4 +4,5 @@
   (lib (name "Transceptor")(type "KiCad")(uri "${KIPRJMOD}/lib/Transceptor/Transceptor.pretty")(options "")(descr ""))
   (lib (name "Interrupt")(type "KiCad")(uri "${KIPRJMOD}/lib/Interrupt/Interrupt.pretty")(options "")(descr ""))
   (lib (name "SD")(type "KiCad")(uri "${KIPRJMOD}/lib/SD/SD.pretty")(options "")(descr ""))
+  (lib (name "Magnetometer")(type "KiCad")(uri "${KIPRJMOD}/lib/Magnetometer/Magnetometer.pretty")(options "")(descr ""))
 )
