@@ -5,4 +5,5 @@
   (lib (name "Interrupt")(type "KiCad")(uri "${KIPRJMOD}/lib/Interrupt/Interrupt.pretty")(options "")(descr ""))
   (lib (name "SD")(type "KiCad")(uri "${KIPRJMOD}/lib/SD/SD.pretty")(options "")(descr ""))
   (lib (name "Magnetometer")(type "KiCad")(uri "${KIPRJMOD}/lib/Magnetometer/Magnetometer.pretty")(options "")(descr ""))
+  (lib (name "SPEL")(type "KiCad")(uri "${KIPRJMOD}/lib/SPEL.pretty")(options "")(descr ""))
 )

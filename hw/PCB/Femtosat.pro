@@ -1,4 +1,4 @@
-update=dom 24 oct 2021 19:47:48
+update=mar 26 oct 2021 01:00:54
 version=1
 last_client=kicad
 [general]
@@ -24,6 +24,8 @@ version=1
 5=114db655-39a3-4cb2-81b9-ab306661d60b:Sensors
 6=00000000-0000-0000-0000-00005bffa937:Programmer
 7=00000000-0000-0000-0000-00005d1d1fd3:Data logger
+[ModEditFrame]
+version=1
 [PcbFrame]
 version=1
 [pcbnew]
@@ -372,5 +374,3 @@ uViaDrill=0.1
 dPairWidth=0.2
 dPairGap=0.25
 dPairViaGap=0.25
-[ModEditFrame]
-version=1
