@@ -2,14 +2,13 @@
 #define GPSSDATA_H
 
 struct GpsData{
-    int hour;
-    int minute;
-    int second;
-    int satellites;
-
+    uint32_t date;
+    uint32_t time;
     float latitude;
     float longitude;
-    float altitude;
+    float altitude_km;
+    float speed_mps;
+    uint32_t num_sats;
 };
 
 #endif

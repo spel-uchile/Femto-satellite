@@ -2,8 +2,8 @@
 
 unsigned long t0, dt;
 float version;
-char lat[12], lng[12], alt[12];
-int hour, min, sec, sats;
+char lat[12], lng[12], alt[12], speed[12];
+uint32_t date, time, sats;
 
 //-------------------------- Public Methods --------------------------
 /**
@@ -11,17 +11,17 @@ int hour, min, sec, sats;
  * system.
  */
 void FE::init(void) {
-    version = 2.0;
+    version = 3.211109;
 }
 
 void FE::updateData(char data[]) {
-    sscanf(data, "%d %d %d %d %s %s %s",
-           &hour, &min, &sec, &sats, &lat, &lng, &alt);
-    gpsData.hour = hour;
-    gpsData.minute = min;
-    gpsData.second = sec;
-    gpsData.satellites = sats;
+    sscanf(data, "%d %d %s %s %s %s %d",
+           &date, &time, &lat, &lng, &alt, &speed, &sats);
+    gpsData.date = date;
+    gpsData.time = time;
     gpsData.latitude = ((String) lat).toFloat();
     gpsData.longitude = ((String) lng).toFloat();
-    gpsData.altitude = ((String) alt).toFloat();
+    gpsData.altitude_km = ((String) alt).toFloat();
+    gpsData.speed_mps = ((String) speed).toFloat();
+    gpsData.num_sats = sats;
 }

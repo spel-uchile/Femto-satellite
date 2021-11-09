@@ -1,5 +1,5 @@
 /**
- * @brief Femto-satellite v1.0
+ * @brief Femto-satellite v3.211109
  */
  
 /*Author: Matias Vidal*/
@@ -9,12 +9,14 @@
 #include "cmds.h"
 #include "gps.h"
 
-#define CLIENT_ADDRESS 1
-#define SERVER_ADDRESS 2
+uint8_t address[][9] = {"Femto 01", "Femto 02", "SUCHAI 2", "SUCHAI 3"};
+uint8_t radioNumber = 0;
+
+#define serial SerialUSB
 
 /*Object Definitions*/
 FE femto;
-Radio radio(RADIO_SLAVESELECTPIN, RADIO_INTERRUPT, RADIO_RST, CLIENT_ADDRESS, SERVER_ADDRESS);
+Radio radio(RADIO_CE_PIN, RADIO_CSN_PIN, address, radioNumber);
 GPS gps;
 
 // ================================================================
@@ -29,17 +31,17 @@ int cmd = 0;
 void setup() {
     // Initialize serial communication
     delay(1000);
-    Serial.begin(115200);
-    SerialUSB.setTimeout(200);
-    while (!SerialUSB) {
+    serial.begin(115200);
+    serial.setTimeout(200);
+    while (!serial) {
         ; // wait for serial port to connect.
     }
     // Initialize femto-satellite's systems
-    Serial.println("Initializing the femto-satellite");
+    serial.println("Initializing the femto-satellite");
     femto.init();
     gps.init();
     radio.init();
-    SerialUSB.println("Done.");
+    serial.println("Done.");
 }
 
 // ================================================================
@@ -59,10 +61,10 @@ void loop() {
     }
     else if (SerialUSB.available()) {
     */
-    if (SerialUSB.available()) {
+    if (serial.available()) {
         int i = 0;
-        while (SerialUSB.available()) {
-            buf[i] = SerialUSB.read();
+        while (serial.available()) {
+            buf[i] = serial.read();
             i++;
         }
         buf[i] = 0;
@@ -78,19 +80,18 @@ void loop() {
  * Currently it only puts the radio to sleep,
  * but it is expected to also put the
  * microcontroller into this state.
- * @return True if succesfull.
  */
-bool lowPowerMode() {
-    SerialUSB.println("Low power mode selected");
-    return false;//radio.lowPowerMode();
+void lowPowerMode() {
+    serial.println("Low power mode selected");
+    radio.lowPowerMode();
 }
 
 /**
  * Enables the normal mode of operation.
  */
 void normalMode() {
-    SerialUSB.println("Normal mode selected");
-    //radio.normalMode();
+    serial.println("Normal mode selected");
+    radio.normalMode();
 }
 
 /**
@@ -99,89 +100,85 @@ void normalMode() {
  * the user (via serial) and the OBC (via I2C).
  */
 void help() {
-    SerialUSB.println(F("Available commands:"));
-    SerialUSB.print(UPDATE_DATA);
-    SerialUSB.println(F(": UPDATE_DATA"));
-    SerialUSB.print(SEND_BEACON);
-    SerialUSB.println(F(": SEND_BEACON"));
-    SerialUSB.print(DEPLOY_FEMTOSATS);
-    SerialUSB.println(F(": DEPLOY_FEMTOSATS"));
-    SerialUSB.print(FOD_GET_STATUS);
-    SerialUSB.println(F(": FOD_GET_STATUS"));
-    SerialUSB.print(SEND_FEMTOSAT_DATA);
-    SerialUSB.println(F(": SEND_FEMTOSAT_DATA"));
-    SerialUSB.print(SET_ON_TIME);
-    SerialUSB.println(F(": SET_ON_TIME"));
-    SerialUSB.print(GET_CONFIG);
-    SerialUSB.println(F(": GET_CONFIG"));
-    SerialUSB.print(GET_VERSION);
-    SerialUSB.println(F(": GET_VERSION"));
-    SerialUSB.print(ENABLE_LOW_POWER_MODE);
-    SerialUSB.println(F(": ENABLE_LOW_POWER_MODE"));
-    SerialUSB.print(DISABLE_LOW_POWER_MODE);
-    SerialUSB.println(F(": DISABLE_LOW_POWER_MODE"));
-    SerialUSB.print(HELP);
-    SerialUSB.println(F(": HELP"));
+    serial.println(F("Available commands:"));
+    serial.print(UPDATE_DATA);
+    serial.println(F(": UPDATE_DATA"));
+    serial.print(SEND_BEACON);
+    serial.println(F(": SEND_BEACON"));
+    serial.print(DEPLOY_FEMTOSATS);
+    serial.println(F(": DEPLOY_FEMTOSATS"));
+    serial.print(FOD_GET_STATUS);
+    serial.println(F(": FOD_GET_STATUS"));
+    serial.print(SEND_FEMTOSAT_DATA);
+    serial.println(F(": SEND_FEMTOSAT_DATA"));
+    serial.print(GET_CONFIG);
+    serial.println(F(": GET_CONFIG"));
+    serial.print(GET_VERSION);
+    serial.println(F(": GET_VERSION"));
+    serial.print(ENABLE_LOW_POWER_MODE);
+    serial.println(F(": ENABLE_LOW_POWER_MODE"));
+    serial.print(DISABLE_LOW_POWER_MODE);
+    serial.println(F(": DISABLE_LOW_POWER_MODE"));
+    serial.print(HELP);
+    serial.println(F(": HELP"));
 }
 
 void executeCommand(int cmd, char params[]) {
-    SerialUSB.print("Received: ");
-    SerialUSB.print(cmd);
-    SerialUSB.print("   Command: ");
+    serial.print("Received: ");
+    serial.print(cmd);
+    serial.print("   Command: ");
     if (cmd == UPDATE_DATA) {
-        SerialUSB.print("UPDATE_DATA");
-        SerialUSB.print("   Parameters: ");
-        SerialUSB.println(params);
+        serial.print("UPDATE_DATA");
+        serial.print("   Parameters: ");
+        serial.println(params);
         femto.updateData(params);
-        SerialUSB.print("Data: ");
-        SerialUSB.print("HH:MM:SS: ");
-        SerialUSB.print(femto.gpsData.hour);
-        SerialUSB.print(":");
-        SerialUSB.print(femto.gpsData.minute);
-        SerialUSB.print(":");
-        SerialUSB.print(femto.gpsData.second);
-        SerialUSB.print("    Sat: ");
-        SerialUSB.print(femto.gpsData.satellites);
-        SerialUSB.print("    Location: ");
-        SerialUSB.print(femto.gpsData.latitude, 6);
-        SerialUSB.print(",");
-        SerialUSB.print(femto.gpsData.longitude, 6);
-        SerialUSB.print("    Altitude (GPS): ");
-        SerialUSB.println(femto.gpsData.altitude, 6);
+        serial.print("Data: ");
+        serial.print("Date");
+        serial.print(femto.gpsData.date);
+        serial.print("    HH:MM:SS:CC ");
+        serial.print(femto.gpsData.time);
+        serial.print("    Location: ");
+        serial.print(femto.gpsData.latitude, 6);
+        serial.print(",");
+        serial.print(femto.gpsData.longitude, 6);
+        serial.print("    Altitude (GPS): ");
+        serial.println(femto.gpsData.altitude_km, 6);
+        serial.print("    Sat: ");
+        serial.print(femto.gpsData.num_sats);
     }
     else if (cmd == SEND_BEACON) {
-        SerialUSB.println("SEND_BEACON");
+        serial.println("SEND_BEACON");
         //radio.updateBeacon(&gps.gpsData);
-        //radio.send_data();
+        radio.send_data();
     }
     else if (cmd == SEND_FEMTOSAT_DATA) {
-        SerialUSB.println("SEND_FEMTOSAT_DATA");
+        serial.println("SEND_FEMTOSAT_DATA");
         //radio.updateBeacon(&gps.gpsData);
-        //radio.send_data();
+        radio.send_data();
     }
     else if (cmd == GET_VERSION) {
-        SerialUSB.println("GET_VERSION");
-        SerialUSB.print("Current version is: ");
-        SerialUSB.println(femto.version, 1);
+        serial.println("GET_VERSION");
+        serial.print("Current version is: ");
+        serial.println(femto.version);
     }
     else if (cmd == ENABLE_LOW_POWER_MODE) {
-        SerialUSB.println("ENABLE_LOW_POWER_MODE");
-        //lowPowerMode();
+        serial.println("ENABLE_LOW_POWER_MODE");
+        lowPowerMode();
     }
     else if (cmd == DISABLE_LOW_POWER_MODE) {
-        SerialUSB.println("DISABLE_LOW_POWER_MODE");
-        //normalMode();
+        serial.println("DISABLE_LOW_POWER_MODE");
+        normalMode();
     }
     else if (cmd == HELP) {
-        SerialUSB.println("HELP");
+        serial.println("HELP");
         help();
     }
     else if (cmd == 12) {
-        SerialUSB.println("DONE");
+        serial.println("DONE");
     }
     else {
-        SerialUSB.print(cmd);
-        SerialUSB.println(" is not available yet");
+        serial.print(cmd);
+        serial.println(" is not available yet");
     }
     //cmd = 0;
 }

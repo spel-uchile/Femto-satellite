@@ -6,7 +6,6 @@
 
 /*Requiered Libraries*/
 #include <Arduino.h>
-#include "SparkFun_I2C_GPS_Arduino_Library.h"
 #include <TinyGPS++.h>
 #include "gps_data.h"
 
@@ -20,7 +19,6 @@
     
     // GPS object
     TinyGPSPlus gps;
-    I2CGPS I2Cgps;
 
     public:
         /*Public Members*/

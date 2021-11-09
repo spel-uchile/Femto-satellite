@@ -6,8 +6,6 @@
 
 #include "gps.h"
 
-#define DEBUG_LEVEL 1
-
 GPS::GPS(void) {
     gps_baudrate = 9600;
 }
@@ -17,23 +15,22 @@ GPS::GPS(int baudrate) {
 }
 
 void GPS::init() {
-	if (I2Cgps.begin() == false)
-	    SerialUSB.println("GPS failed to respond. Please check wiring.");	
+    Serial.begin(gps_baudrate);
     //Serial2.begin(gps_baudrate);
 }
 
 void GPS::updateData() {
-    while (I2Cgps.available()) {
-        if (gps.encode(I2Cgps.read())) {
+    while (Serial.available()) {
+        if (gps.encode(Serial.read())) {
             checkValidity();
 
-            gpsData.hour = gps.time.hour();
-            gpsData.minute = gps.time.minute();
-            gpsData.second = gps.time.second();
-            gpsData.satellites = gps.satellites.value();
+            gpsData.date = gps.date.value();
+            gpsData.time = gps.time.value();
             gpsData.latitude = gps.location.lat();
             gpsData.longitude = gps.location.lng();
-            gpsData.altitude = gps.altitude.meters();
+            gpsData.altitude_km = gps.altitude.meters();
+	    gpsData.speed_mps = gps.speed.mps();
+            gpsData.num_sats = gps.satellites.value();
         }
     }
     if (millis() > 5000 && gps.charsProcessed() < 10) {

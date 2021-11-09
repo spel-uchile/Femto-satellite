@@ -2,13 +2,12 @@
  * @brief Simple Radio Library
  */
 
-/*Author: Gustavo Diaz, Matias Vidal*/
+/*Author: Matías Vidal*/
 
 /*Requiered Libraries*/
 #include <Arduino.h>
-#include <RHReliableDatagram.h>
 #include <SPI.h>
-#include <RH_RF69.h>
+#include "RF24.h"
 #include "gps_data.h"
 
 /**
@@ -17,49 +16,27 @@
  */
 
 typedef struct {
-    /*
-    float Temp1;
-    float Pressure;
-    float Alt;
-    float Temp2;
-    float Humidity;
-    float Temp3;
-    float IMU1;
-    float IMU2;
-    float IMU3;
-    */
-    uint8_t GPS_HH;
-    uint8_t GPS_MM;
-    uint8_t GPS_SS;
-    uint32_t GPS_Sat;
-    float GPS_Lat;
-    float GPS_Lng;
-    float GPS_Alt;
+    uint32_t node;
+    uint32_t index;
+    uint32_t date;
+    uint32_t time;
+    float latitude;
+    float longitude;
+    float altitude_km;
+    float speed_mps;
+    uint32_t num_sats;
 } frame_t;
 
 class Radio {
     /*Private Members*/
+    RF24 rf24;
     frame_t beacon;
-    frame_t beacon_tx_;
-
-    uint8_t beacon_tx_size_ = sizeof(beacon_tx_);
-
-    // Radio Object
-    RH_RF69 driver;
-
-    // Class to manage message delivery and receipt, using the driver declared above.
-    RHReliableDatagram rf69;
-
-    // Shutdown pin
-    uint8_t rst_pin_;
-
-    // addr
-    uint8_t addr_;
-    uint8_t addr2_;
-    
-
-    // Debug
-    // HardwareSerial *debug_port_;
+    uint32_t beacon_size = sizeof(beacon);
+    uint32_t index;
+    uint8_t ce_pin;
+    uint8_t csn_pin;
+    uint8_t node;
+    uint8_t address[][9];
 
 public:
     /*Public Members*/
@@ -67,33 +44,29 @@ public:
     /*constructor de base (null)*/
     // Radio() {}
 
-    // constructror parametrizado
-    Radio(uint8_t radio_slaveselectpin, uint8_t radio_interrupt, uint8_t rst, uint8_t addr, uint8_t addr2):
-        driver(radio_slaveselectpin, radio_interrupt),
-        addr_(addr),
-        addr2_(addr2),
-        rf69(driver, addr),
-        rst_pin_(rst)
-        // debug_port_(debug_port)
+    // constructor parametrizado
+    Radio(uint8_t radio_ce_pin, uint8_t radio_csn_pin, uint8_t address[][9], uint8_t radioNumber):rf24(ce_pin, csn_pin)
     {
+        ce_pin = radio_ce_pin;
+        csn_pin = radio_csn_pin;
+        index = 0;
+        address = address;
+        node = radioNumber;
+        
         // Config pins
-        pinMode(rst_pin_, OUTPUT);
+        pinMode(radio_ce_pin, OUTPUT);
+	    pinMode(radio_csn_pin, OUTPUT);
     }
-
     // methods
     void init(void);
-    //void updateBeacon(AtmsData *atmsData, GpsData *gpsData, VectorInt16 *gyroData);
-    bool available(void);
+    bool available(uint8_t pipe);
     void updateBeacon(GpsData * gpsData);
-    void send_data();
+    void send_data(void);
     void ping(uint8_t to);
-    void ack_ping();
-    bool send_command(uint8_t cmd);
-    uint8_t read_command(void);
-    void sendFrame(uint8_t frame[], int frame_size);
+    void sendFrame(frame_t *frame, uint32_t frame_size);
     void displayData(double dataD[], float dataF[], uint8_t dataU8[], uint32_t dataU32);
-    void readFrame(uint8_t* frame);
-    bool lowPowerMode(void);
+    void readFrame(void);
+    void lowPowerMode(void);
     void normalMode(void);
 
 private:
