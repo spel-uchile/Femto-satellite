@@ -1,4 +1,4 @@
-update=mar 26 oct 2021 01:00:54
+update=mié 19 ene 2022 00:43:45
 version=1
 last_client=kicad
 [general]
@@ -12,22 +12,21 @@ NetIExt=net
 version=1
 LibDir=
 [eeschema/libraries]
+[PcbFrame]
+version=1
 [LibeditFrame]
+version=1
+[ModEditFrame]
 version=1
 [SchematicFrame]
 version=1
 [sheetnames]
-1=43b3638a-09be-41b5-88e2-5afc093b3b92:
+1=d32053ca-6889-4161-b26c-0a31dc87f098:
 2=00000000-0000-0000-0000-00005b6351c6:Power
 3=00000000-0000-0000-0000-00005b626331:USB
 4=00000000-0000-0000-0000-00005bd13dd6:Communication
 5=114db655-39a3-4cb2-81b9-ab306661d60b:Sensors
 6=00000000-0000-0000-0000-00005bffa937:Programmer
-7=00000000-0000-0000-0000-00005d1d1fd3:Data logger
-[ModEditFrame]
-version=1
-[PcbFrame]
-version=1
 [pcbnew]
 version=1
 PageLayoutDescrFile=

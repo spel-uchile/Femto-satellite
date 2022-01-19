@@ -6,4 +6,5 @@
   (lib (name "Interrupter")(type "Legacy")(uri "${KIPRJMOD}/lib/Interrupt/Interrupter.lib")(options "")(descr ""))
   (lib (name "rm3100")(type "KiCad")(uri "${KIPRJMOD}/lib/Magnetometer/rm3100.kicad_sym")(options "")(descr ""))
   (lib (name "SAMD21")(type "KiCad")(uri "${KIPRJMOD}/lib/SAMD21.kicad_sym")(options "")(descr ""))
+  (lib (name "Temperature")(type "KiCad")(uri "${KIPRJMOD}/lib/Temperature.kicad_sym")(options "")(descr ""))
 )
