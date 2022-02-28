@@ -103,6 +103,7 @@ void setup() {
     radio.openWritingPipe(address[radioNumber]);
     radio.openReadingPipe(1, address[3]);
     radio.setDataRate(RF24_250KBPS);
+    radio.setChannel(55); // 2400 + 55 = 2455 MHz
     radio.startListening(); // put radio in RX mode
     serial.println(F("Done."));
     // For debugging info
