@@ -37,6 +37,8 @@
         void init(void);
         void updateData(void);
         uint8_t checkValidity(void);
+        void powerUp(void);
+        void powerDown(void);
 
     private:
         int gps_baudrate;

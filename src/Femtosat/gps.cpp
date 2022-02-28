@@ -44,3 +44,11 @@ uint8_t GPS::checkValidity(void) {
     validity += gps.satellites.isValid()*(0b00010000);
     return validity;
 }
+
+void GPS::powerUp(void) {
+    digitalWrite(GPS_EN, HIGH);
+}
+
+void GPS::powerDown(void) {
+    digitalWrite(GPS_EN, LOW);
+}
