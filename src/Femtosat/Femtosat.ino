@@ -1,6 +1,6 @@
+#include <RTCZero.h>
 #include <SPI.h>
 #include <Wire.h>
-//#include "printf.h"
 #include "RF24.h"
 #include "PNI_RM3100.h"
 #include "gps.h"
@@ -21,22 +21,24 @@ RF24 radio(RADIO_CE_PIN, RADIO_CSN_PIN, 1000000);
 // Instantiate an object for the RM3100 Magnetometer
 PNI_RM3100 mag;
 // Instantiate an object for the JAVAD GNSS receiver
-GPS javad(9600);
+GPS javad(115200);
 // Instantiate an object for the MCP9808 temperature sensor
 TEMP temp(0x18);
+// Create an rtc object 
+RTCZero rtc;
 
 uint8_t address[4][8] = {"Femto 1", "Femto 2", "SUCHAI2", "SUCHAI3"};
-uint8_t radioNumber = 0;
+uint8_t radioNumber = 1;
 
 // Used to control whether this node is sending or receiving
 bool role = false;  // true = TX role, false = RX role
 
-bool mag_debug = true;
-bool temp_debug = true;
-bool gps_debug = true;
-bool trx_debug = true;
+bool mag_debug = false;
+bool temp_debug = false;
+bool gps_debug = false;
+bool trx_debug = false;
 uint32_t cmd = 0;
-const uint32_t max_samples = 10;
+const uint32_t max_samples = 400;
 uint32_t transmit_index = 0;
 
 typedef struct{
@@ -61,19 +63,16 @@ typedef struct{
 } mag_data_t;
 mag_data_t mag_data[max_samples];
 
-int ccx = 3200; /**< Count Cycles for x sensor measurement. It must be between 30 an 400 (default 200) */
-int ccy = 3200; /**< Count Cycles for y sensor measurement. It must be between 30 an 400 (default 200) */
-int ccz = 3200; /**< Count Cycles for z sensor measurement. It must be between 30 an 400 (default 200) */
+uint32_t sizeof_gnss_data = sizeof(gnss_data_t);
+uint32_t sizeof_mag_data = sizeof(mag_data_t);
 
 void setup() {
     delay(1000);
     Wire.begin();
-    //pinMode(MAG_CS, OUTPUT);
-    //digitalWrite(MAG_CS, HIGH);
     pinMode(RADIO_CSN_PIN, OUTPUT);
     digitalWrite(RADIO_CSN_PIN, LOW);
     pinMode(STATUS_LED, OUTPUT);
-    digitalWrite(RADIO_CSN_PIN, HIGH);
+    digitalWrite(STATUS_LED, LOW);
     pinMode(MAG_RDY, INPUT);
     serial.begin(115200);
     javad.init();
@@ -85,6 +84,9 @@ void setup() {
     serial.println(F("RM_3100 connected"));
     serial.println(F("Initializing the magnetometer..."));
     /* Default settings from datasheet. */
+    int ccx = 3200; /**< Count Cycles for x sensor measurement. It must be between 30 an 400 (default 200) */
+    int ccy = 3200; /**< Count Cycles for y sensor measurement. It must be between 30 an 400 (default 200) */
+    int ccz = 3200; /**< Count Cycles for z sensor measurement. It must be between 30 an 400 (default 200) */
     mag.setSampling(PNI_RM3100::MODE_CMMXYZ,     /* Operating Mode. MODE_SINGLE MODE_CMMXYZ MODE_CMMX MODE_CMMY MODE_CMMZ*/
                     PNI_RM3100::TMRC_HZ,         /* Max frequency */
                     ccx,    /**< Count Cycles for x sensor measurement. It must be between 30 an 400 (default 200) */
@@ -92,24 +94,32 @@ void setup() {
                     ccz,    /**< Count Cycles for z sensor measurement. It must be between 30 an 400 (default 200) */
                     1);
     serial.println(F("Done."));
-    updateData(9);
     while (!radio.begin(&mySPI, RADIO_CE_PIN, RADIO_CSN_PIN)) {
         serial.println(F("Radio hardware is not responding!!"));
         delay(1000);
     }
     serial.println(F("Initializing radio hardware..."));
     radio.setPALevel(RF24_PA_MAX);//LOW);  // RF24_PA_MAX is default.
-    radio.setPayloadSize(sizeof(gnss_data[max_samples]));
+    radio.setPayloadSize(sizeof_gnss_data);
     radio.openWritingPipe(address[radioNumber]);
     radio.openReadingPipe(1, address[3]);
     radio.setDataRate(RF24_250KBPS);
     radio.setChannel(55); // 2400 + 55 = 2455 MHz
     radio.startListening(); // put radio in RX mode
     serial.println(F("Done."));
-    // For debugging info
-    //printf_begin();             // needed only once for printing details
-    // radio.printDetails();      // (smaller) function that prints raw register values
-    //radio.printPrettyDetails(); // (larger) function that prints human readable data
+    serial.println(F("Initializing RTC..."));
+    rtc.begin();
+    rtc.setTime((byte) 0, (byte) 0, (byte) 0);
+    rtc.setDate((byte) 0, (byte) 0, (byte) 0);
+    serial.println(F("Done."));
+    digitalWrite(STATUS_LED, HIGH);
+    delay(5000);
+    digitalWrite(STATUS_LED, LOW);
+    //role = true;
+    //cmd = 8;
+    serial.println(F("Starting initial measurement."));
+    updateData();
+    serial.println(F("Done."));
 } // setup
 
 void loop() {
@@ -120,13 +130,24 @@ void loop() {
         else if (cmd == 1){
             sendMagData(transmit_index);
         }
-        else {
-            updateData(max_samples);
+        else if (cmd == 2) {
+            sendCarrierWave();
         }
-        delay(10);
+        else {
+            setAlarm(cmd);
+            delay(200);
+            updateData();
+            //role = true;
+        }
         transmit_index++;
-        if (transmit_index > max_samples)
+        //serial.println(transmit_index);
+        delay(10);
+        if (transmit_index >= max_samples*2) {
             transmit_index = 0;
+            setAlarm(4800);
+            delay(200);
+            updateData();
+        }
     }
     else {
         receiveCMD();
@@ -142,6 +163,7 @@ void loop() {
  */
 void lowPowerMode() {
     serial.println(F("Low power mode selected"));
+    javad.powerDown();
     radio.powerDown();
     digitalWrite(STATUS_LED, LOW);
 }
@@ -151,14 +173,52 @@ void lowPowerMode() {
  */
 void normalMode() {
     serial.println(F("Normal mode selected"));
+    javad.powerDown();
     radio.powerUp();
+    delay(5);
+    radio.startListening();
+}
+
+void setAlarm(uint32_t dt) {
+    uint32_t hours, minutes;
+    lowPowerMode();
+    role = false;
+    rtc.setTime((byte) 0, (byte) 0, (byte) 0);
+    hours = dt/3600;
+    serial.println(F("========================================"));
+    if (hours > 0) {
+        dt = dt - hours*3600;
+        serial.print(F("Hours: "));
+        serial.println(hours);
+    }
+    minutes = dt/60;
+    if (minutes > 0) {
+        dt = dt - minutes*60;
+        serial.print(F("Minutes: "));
+        serial.println(minutes);
+    }
+    serial.print(F("Seconds: "));
+    serial.println(dt);
+    rtc.setAlarmTime((byte) hours, (byte) minutes, (byte) dt);
+    rtc.enableAlarm(rtc.MATCH_HHMMSS);
+    //rtc.attachInterrupt(updateData);
+    rtc.standbyMode();
+}
+
+void sendCarrierWave() {
+    serial.println("Sending a constant carrier wave");
+    radio.startConstCarrier(RF24_PA_MAX, 55);
+    delay(5000);
+    radio.stopConstCarrier();
+    radio.startListening();
+    serial.println("Stopped constant carrier wave");
+    role = false;
 }
 
 void sendGPSData(uint32_t index) {
-    radio.setPayloadSize(sizeof(gnss_data[index]));
-    //updateGPSData();
+    radio.setPayloadSize(sizeof_gnss_data);
     unsigned long start_timer = micros();                     // start the timer
-    bool report = radio.write(&gnss_data[index], sizeof(gnss_data[index])); // transmit & save the report
+    bool report = radio.write(&gnss_data[index], sizeof_gnss_data); // transmit & save the report
     unsigned long end_timer = micros();                       // end the timer
     if (report) {
         if (trx_debug) {
@@ -182,21 +242,19 @@ void sendGPSData(uint32_t index) {
             serial.print(gnss_data[index].num_sats);
             serial.print(F("\n"));
         }
-        //gnss_data.index++;
-        role = false;
         radio.startListening();
     }
     else {
         serial.println(F("Transmission failed or timed out")); // payload was not delivered
     }
+    role = false;
+    radio.startListening();
 }
 
 void sendMagData(uint32_t index) {
-    //updateMagData();
-    //updateTempData();
-    radio.setPayloadSize(sizeof(mag_data[index]));
+    radio.setPayloadSize(sizeof_mag_data);
     unsigned long start_timer = micros();                     // start the timer
-    bool report = radio.write(&mag_data[index], sizeof(mag_data[index]));   // transmit & save the report
+    bool report = radio.write(&mag_data[index], sizeof_mag_data);   // transmit & save the report
     unsigned long end_timer = micros();                       // end the timer
     if (report) {
         if (trx_debug) {
@@ -214,17 +272,13 @@ void sendMagData(uint32_t index) {
             serial.print(mag_data[index].fe_mag_z);
             serial.print(F("\n"));
         }
-        //mag_data.index++;
-        role = false;
-        //lowPowerMode();
-        //delay(10);
-        //normalMode();
-        //delay(10);
         radio.startListening();
     }
     else {
         serial.println(F("Transmission failed or timed out")); // payload was not delivered
     }
+    role = false;
+    radio.startListening();
 }
 
 void receiveCMD() {
@@ -235,6 +289,7 @@ void receiveCMD() {
         //radio.setPayloadSize(sizeof(uint32_t));
         uint8_t bytes = radio.getPayloadSize(); // get the size of the payload
         radio.read(&cmd, bytes);            // fetch payload from FIFO
+        serial.println(cmd);
         if (trx_debug) {
             serial.print(F("Received "));
             serial.print(bytes);                    // print the size of the payload
@@ -326,33 +381,50 @@ void updateTempData(uint32_t index) {
     digitalWrite(STATUS_LED, LOW);
 }
 
-void updateData(uint32_t samples) {
-    /*
+void updateData() {
+    digitalWrite(STATUS_LED, LOW);
     radio.stopListening();
     radio.powerDown();
-    digitalWrite(RADIO_CE_PIN, LOW);
-    delay(5);
-    */
     javad.powerUp();
-    digitalWrite(STATUS_LED, LOW);
+    delay(100);
     int ttff = 20000;
-    int sampling_period = 100;
-    uint32_t i;
-    for (i=0; i < ((int) ttff/sampling_period); i++) {
+
+    serial.println(F("Configuring GNSS receiver with %%set,/par/lock/vmax,10000..."));
+    Serial1.print(F("%%set,/par/lock/vmax,10000"));
+    //while (Serial1.available())
+    //    serial.print(Serial1.read());
+    serial.println(F("Done."));
+    serial.println(F("Configuring GNSS receiver with %%set,/par/pwr/extanten,on..."));
+    Serial1.print(F("%%set,/par/pwr/extanten,on"));
+    //while (Serial1.available())
+    //    serial.print(Serial1.read());
+    serial.println(F("Done."));
+    serial.println(F("Configuring GNSS receiver with em,,nmea/{GGA,ZDA}:0.3..."));
+    Serial1.print(F("em,,nmea/{GGA,ZDA}:0.3"));
+    //while (Serial1.available())
+    //    serial.print(Serial1.read());
+    serial.println(F("Done."));
+    delay(ttff);
+
+/*
+    for (int i =0; i < 100; i++) {
+        serial.println(F("Reading GPS data..."));
         updateGPSData(0);
-        delay(sampling_period);
+        delay(300);
     }
-    i = 0;
-    while (i < samples) {
-        updateGPSData(i);
+*/
+    uint32_t i = 0;
+    while (i < max_samples) {
         if (digitalRead(MAG_RDY)) {
+            updateGPSData(i);
             updateMagData(i);
             updateTempData(i);
             i++;
         }
-        delay(980);
+        delay(20);
     }
     javad.powerDown();
     radio.powerUp();
     radio.startListening();
+    role = false;
 }

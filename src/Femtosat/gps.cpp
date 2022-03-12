@@ -16,7 +16,8 @@ GPS::GPS(int baudrate) {
 
 void GPS::init() {
     Serial1.begin(gps_baudrate);
-    //Serial2.begin(gps_baudrate);
+    pinMode(GPS_EN, OUTPUT);
+    digitalWrite(GPS_EN, LOW);
 }
 
 void GPS::updateData() {
